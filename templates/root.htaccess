@@ -1,14 +1,17 @@
-# Codifica — Apache
+# Codifica — Apache (carpeta principal web-cursorsdk)
 RewriteEngine On
 
-# Proteger JSON DB
-RedirectMatch 403 ^/datos/
+# Proteger JSON DB (relativo a este directorio)
+RewriteRule ^datos/ - [F,L]
 
-# Proteger cerebro (excepto public e index)
-RewriteRule ^codifica/(?!index\.html|public/).* - [F,L]
+# UI Codifica: solo index.html y public/
+RewriteRule ^codifica/public/ - [L]
+RewriteRule ^codifica/index\.html$ - [L]
+RewriteRule ^codifica/?$ codifica/index.html [L]
+RewriteRule ^codifica/.+ - [F,L]
 
 # App generada
-RewriteRule ^$ /proyecto/frontend/ [L,R=302]
+RewriteRule ^$ proyecto/frontend/ [L,R=302]
 
-# Proxy API Node (descomentar si Apache hace proxy a :3000)
-# RewriteRule ^api/(.*)$ http://127.0.0.1:3000/api/$1 [P,L]
+# Proxy API → servidor Node (npm start, PORT=3000)
+RewriteRule ^api/(.*)$ http://127.0.0.1:3000/api/$1 [P,L]
