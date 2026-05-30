@@ -1,0 +1,29 @@
+{
+  "name": "codifica",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Codifica — plataforma multi-agente con @cursor/sdk",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsc && node dist/server.js",
+    "dev:cli": "node dist/index.js",
+    "plan": "node dist/index.js plan",
+    "demo": "node dist/index.js demo",
+    "build:ui": "cd ui && npm run build",
+    "dev:ui": "cd ui && npm run dev"
+  },
+  "dependencies": {
+    "@cursor/sdk": "^1.0.10",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

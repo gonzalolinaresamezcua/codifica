@@ -1,0 +1,1 @@
+Crea un SaaS completo de gestión de clientes CRM con tecnologia Next.js 15, db en archivos .json en carpeta /datos, autenticación, dashboard admin

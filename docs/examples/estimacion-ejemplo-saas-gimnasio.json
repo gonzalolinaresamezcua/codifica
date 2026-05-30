@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "proyecto": "Codifica",
+    "tipo": "estimacion-tokens-costo",
+    "fecha": "2026-05-30",
+    "promptUsuarioEjemplo": "Crea un SaaS completo de gestión de gimnasios con Next.js 15, Supabase, Stripe, autenticación, dashboard admin y app móvil PWA",
+    "nota": "Estimaciones orientativas para Plan Profesional del Agente Principal — valores reales dependen de CURSOR_API_KEY y modelo composer-2.5"
+  },
+  "planProfesional": {
+    "fases": [
+      {
+        "fase": "Análisis y Plan (Nivel 0 Orchestrator)",
+        "duracionHoras": 0.5,
+        "agentes": ["orchestrator-manager"],
+        "tokens": { "input": 8000, "output": 12000, "total": 20000 },
+        "riesgo": "bajo"
+      },
+      {
+        "fase": "Arquitectura técnica (Nivel 1 Planner)",
+        "duracionHoras": 1,
+        "agentes": ["planner"],
+        "tokens": { "input": 15000, "output": 25000, "total": 40000 },
+        "riesgo": "bajo"
+      },
+      {
+        "fase": "Implementación paralela (Nivel 2)",
+        "duracionHoras": 4,
+        "agentes": ["frontend", "backend", "database", "auth-security", "integration"],
+        "tokensPorAgente": { "input": 40000, "output": 80000, "total": 120000 },
+        "tokensSubtotal5Agentes": { "input": 200000, "output": 400000, "total": 600000 },
+        "riesgo": "medio",
+        "maxParallelRecomendado": 3
+      },
+      {
+        "fase": "Deploy + QA (Nivel 2)",
+        "duracionHoras": 2,
+        "agentes": ["deploy", "qa-testing"],
+        "tokens": { "input": 30000, "output": 50000, "total": 80000 },
+        "riesgo": "medio"
+      },
+      {
+        "fase": "Supervisión final (Nivel 2 Debug & Supervisor)",
+        "duracionHoras": 1,
+        "agentes": ["debug-supervisor"],
+        "tokens": { "input": 50000, "output": 30000, "total": 80000 },
+        "riesgo": "bajo"
+      }
+    ],
+    "totales": {
+      "tokensInput": 303000,
+      "tokensOutput": 517000,
+      "tokensTotal": 820000,
+      "duracionHorasEstimada": 8.5,
+      "costoUsdNota": "Consultar dashboard Cursor con tag SDK; pricing token-based según pool de cuenta"
+    }
+  },
+  "desglosePorNivelRiesgo": {
+    "bajo": { "tokensAprox": 120000, "acciones": ["plan", "docs", "lectura código"] },
+    "medio": { "tokensAprox": 680000, "acciones": ["escritura código", "npm install", "migraciones", "tests"] },
+    "alto": { "tokensAprox": 20000, "acciones": ["deploy producción", "Stripe live keys — requiere aprobación explícita"] }
+  }
+}

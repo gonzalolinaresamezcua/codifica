@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codifica — Orquestador</title>
+  <link rel="stylesheet" href="/codifica/public/style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Codifica</h1>
+      <p class="subtitle">Describe tu aplicación y pulsa Enter</p>
+    </header>
+
+    <textarea id="prompt" rows="6" placeholder="Crea un SaaS..."></textarea>
+
+    <div class="actions">
+      <label class="parallel">
+        Paralelo:
+        <input type="number" id="maxParallel" min="1" max="10" value="3" />
+      </label>
+      <label class="check">
+        <input type="checkbox" id="approveAlto" checked />
+        Aprobar riesgo alto
+      </label>
+      <label class="check">
+        <input type="checkbox" id="overnight" />
+        Overnight mode
+      </label>
+      <button id="submitBtn" type="button">Enter ↵</button>
+    </div>
+
+    <section id="planSummary" class="panel hidden"></section>
+    <section id="logs" class="panel logs"></section>
+  </main>
+  <script src="/codifica/public/app.js"></script>
+</body>
+</html>

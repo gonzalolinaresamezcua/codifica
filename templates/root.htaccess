@@ -1,0 +1,14 @@
+# Codifica — Apache
+RewriteEngine On
+
+# Proteger JSON DB
+RedirectMatch 403 ^/datos/
+
+# Proteger cerebro (excepto public e index)
+RewriteRule ^codifica/(?!index\.html|public/).* - [F,L]
+
+# App generada
+RewriteRule ^$ /proyecto/frontend/ [L,R=302]
+
+# Proxy API Node (descomentar si Apache hace proxy a :3000)
+# RewriteRule ^api/(.*)$ http://127.0.0.1:3000/api/$1 [P,L]

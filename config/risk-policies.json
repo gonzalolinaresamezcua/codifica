@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "tipo": "politicas-riesgo",
+    "proyecto": "Codifica",
+    "alias": "AITareaWeb",
+    "fecha": "2026-05-30",
+    "inspiracion": "AITarea — Nivel Bajo / Medio / Alto",
+    "implementacion": ".cursor/hooks.json en /proyecto/.cursor/"
+  },
+  "niveles": [
+    {
+      "nivel": "Bajo",
+      "codigo": "bajo",
+      "ejemplos": [
+        "Leer archivos",
+        "Generar plan profesional",
+        "Crear documentación en /projects",
+        "Análisis de prompt y trazabilidad"
+      ],
+      "aprobacion": "Automática",
+      "hooksCursor": ["preToolUse — allow read-only tools"]
+    },
+    {
+      "nivel": "Medio",
+      "codigo": "medio",
+      "ejemplos": [
+        "Escribir código fuente",
+        "npm install",
+        "Migraciones Prisma",
+        "Tests Jest/Playwright"
+      ],
+      "aprobacion": "Usuario confirma en UI o hook preToolUse",
+      "hooksCursor": ["preToolUse", "beforeShellExecution — confirm write/npm"]
+    },
+    {
+      "nivel": "Alto",
+      "codigo": "alto",
+      "ejemplos": [
+        "Shell destructivo (rm -rf)",
+        "Deploy a producción",
+        "Eliminar datos",
+        "Stripe live keys y pagos reales"
+      ],
+      "aprobacion": "Obligatoria explícita del usuario",
+      "hooksCursor": ["beforeShellExecution — block until approved"]
+    }
+  ],
+  "agentesPorNivelDefault": {
+    "orchestrator-manager": "bajo",
+    "planner": "bajo",
+    "frontend": "medio",
+    "backend": "medio",
+    "database": "medio",
+    "auth-security": "medio",
+    "integration": "medio",
+    "deploy": "alto",
+    "qa-testing": "medio",
+    "debug-supervisor": "bajo"
+  }
+}
