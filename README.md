@@ -196,3 +196,7 @@ MIT — see [LICENSE](LICENSE).
 ## Author
 
 Open-source project exploring multi-agent software generation with the Cursor SDK.
+
+---
+
+Creado con [AITarea.com](https://aitarea.com)
